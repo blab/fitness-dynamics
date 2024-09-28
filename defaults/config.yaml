@@ -1,8 +1,11 @@
 viruses:
-  - sarscov2
+  - sarscov2-2020
+  - sarscov2-2021
+  - sarscov2-2022
+  - sarscov2-2023
+  - sarscov2-2024
 
-sarscov2:
-  # prepare sequence count data
+sarscov2-2020:
   s3_metadata: s3://nextstrain-ncov-private/metadata.tsv.zst
   subset_columns:
     - strain
@@ -14,11 +17,77 @@ sarscov2:
     --clade-column clade_nextstrain
     --filter-columns QC_overall_status country
     --filter-query "QC_overall_status != 'bad' & country == 'USA'"
-  min_date: "2020-04-01"
-  max_date: "2024-09-01"
-  location_min_seq: 50
+  min_date: "2020-01-01"
+  max_date: "2020-12-31"
   clade_min_seq: 2000
-  # run MLR estimates
   pivot: "20A"
+
+sarscov2-2021:
+  s3_metadata: s3://nextstrain-ncov-private/metadata.tsv.zst
+  subset_columns:
+    - strain
+    - date
+    - country
+    - clade_nextstrain
+    - QC_overall_status
+  seq_count_options: >-
+    --clade-column clade_nextstrain
+    --filter-columns QC_overall_status country
+    --filter-query "QC_overall_status != 'bad' & country == 'USA'"
+  min_date: "2021-01-01"
+  max_date: "2021-12-31"
+  clade_min_seq: 2000
+  pivot: "21A"
+
+sarscov2-2022:
+  s3_metadata: s3://nextstrain-ncov-private/metadata.tsv.zst
+  subset_columns:
+    - strain
+    - date
+    - country
+    - clade_nextstrain
+    - QC_overall_status
+  seq_count_options: >-
+    --clade-column clade_nextstrain
+    --filter-columns QC_overall_status country
+    --filter-query "QC_overall_status != 'bad' & country == 'USA'"
+  min_date: "2022-01-01"
+  max_date: "2022-12-31"
+  clade_min_seq: 2000
+  pivot: "22A"
+
+sarscov2-2023:
+  s3_metadata: s3://nextstrain-ncov-private/metadata.tsv.zst
+  subset_columns:
+    - strain
+    - date
+    - country
+    - clade_nextstrain
+    - QC_overall_status
+  seq_count_options: >-
+    --clade-column clade_nextstrain
+    --filter-columns QC_overall_status country
+    --filter-query "QC_overall_status != 'bad' & country == 'USA'"
+  min_date: "2023-01-01"
+  max_date: "2023-12-31"
+  clade_min_seq: 2000
+  pivot: "23A"
+
+sarscov2-2024:
+  s3_metadata: s3://nextstrain-ncov-private/metadata.tsv.zst
+  subset_columns:
+    - strain
+    - date
+    - country
+    - clade_nextstrain
+    - QC_overall_status
+  seq_count_options: >-
+    --clade-column clade_nextstrain
+    --filter-columns QC_overall_status country
+    --filter-query "QC_overall_status != 'bad' & country == 'USA'"
+  min_date: "2024-01-01"
+  max_date: "2024-12-31"
+  clade_min_seq: 2000
+  pivot: "24A"
 
 mlr_config: "defaults/mlr-config.yaml"
