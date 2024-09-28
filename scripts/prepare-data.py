@@ -14,9 +14,11 @@ SEQ_COUNTS_DTYPES = {
     'sequences': 'int64',
 }
 
-# Default cutoff date is today's date
-DEFAULT_CUTOFF_DATE = (datetime.now() - timedelta(days=1)).strftime('%Y-%m-%d')
+# Default min date is 1 year before today's date
+DEFAULT_MIN_DATE = (datetime.now() - timedelta(days=365)).strftime('%Y-%m-%d')
 
+# Default max date is today's date
+DEFAULT_MAX_DATE = (datetime.now() - timedelta(days=1)).strftime('%Y-%m-%d')
 
 def positive_int(value):
     """
@@ -36,12 +38,12 @@ if __name__ == '__main__':
 
     parser.add_argument("--seq-counts", metavar="TSV", required=True,
         help="Path to clade counts TSV with four columns: 'location','clade','date','sequences'")
-    parser.add_argument("--max-date", default=DEFAULT_CUTOFF_DATE,
+    parser.add_argument("--min-date", default=DEFAULT_MIN_DATE,
+        help="The minimum cutoff for date (inclusive), formatted as 'YYYY-MM-DD'.\n"
+             "(default: %(default)s)")
+    parser.add_argument("--max-date", default=DEFAULT_MAX_DATE,
         help="The maximum cutoff for date (inclusive), formatted as 'YYYY-MM-DD'.\n"
              "(default: %(default)s)")
-    parser.add_argument("--included-days", type=positive_int,
-        help="The number of days (including the cutoff date) to include in analysis.\n"
-             "If not provided, all data through the cutoff date will be included.")
     parser.add_argument("--location-min-seq", type=positive_int, default=1,
         help="The mininum number of sequences a location must have within the "
              "days-min-seq to be included in analysis.\n"
@@ -74,15 +76,8 @@ if __name__ == '__main__':
     print(f"Setting max date (inclusive) as {args.max_date!r}.")
     max_date = datetime.strptime(args.max_date, '%Y-%m-%d')
 
-    # Set default min_date to minimum date possible so we include all data up to the max date
-    min_date = None
-    if args.included_days is not None:
-        # Calculate the minimum date as *included_days* days before the max date
-        # Subtract 1 from days in calculation since we are including the max date
-        min_date = max_date - timedelta(days=(args.included_days - 1))
-        print(f"Setting min date (inclusive) as {datetime.strftime(min_date, '%Y-%m-%d')!r}.")
-    else:
-        print("No min date was set, including all dates up to the max date.")
+    print(f"Setting min date (inclusive) as {args.min_date!r}.")
+    min_date = datetime.strptime(args.min_date, '%Y-%m-%d')
 
     ###########################################################################
     ################### Rules for subsetting by location ######################

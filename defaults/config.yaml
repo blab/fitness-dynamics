@@ -14,14 +14,11 @@ sarscov2:
     --clade-column clade_nextstrain
     --filter-columns QC_overall_status country
     --filter-query "QC_overall_status != 'bad' & country == 'USA'"
-  included_days: 150
+  min_date: "2020-04-01"
+  max_date: "2024-09-01"
   location_min_seq: 50
-  location_min_seq_days: 30
-  excluded_locations: "defaults/sarscov2_excluded_locations.txt"
   clade_min_seq: 2000
-  clade_min_seq_days: 150
   # run MLR estimates
-  pivot: "24A"
-
+  pivot: "20A"
 
 mlr_config: "defaults/mlr-config.yaml"

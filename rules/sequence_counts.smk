@@ -58,8 +58,8 @@ rule prepare_clade_data:
     log:
         "logs/{virus}/prepare_clade_data.txt"
     params:
+        min_date = lambda wildcards: _get_prepare_data_option(wildcards, 'min_date'),    
         max_date = lambda wildcards: _get_prepare_data_option(wildcards, 'max_date'),
-        included_days = lambda wildcards: _get_prepare_data_option(wildcards, 'included_days'),
         location_min_seq = lambda wildcards: _get_prepare_data_option(wildcards, 'location_min_seq'),
         location_min_seq_days = lambda wildcards: _get_prepare_data_option(wildcards, 'location_min_seq_days'),
         excluded_locations = lambda wildcards: _get_prepare_data_option(wildcards, 'excluded_locations'),
@@ -70,8 +70,8 @@ rule prepare_clade_data:
         """
         python ./scripts/prepare-data.py \
             --seq-counts {input.sequence_counts} \
+            {params.min_date} \
             {params.max_date} \
-            {params.included_days} \
             {params.location_min_seq} \
             {params.location_min_seq_days} \
             {params.excluded_locations} \
