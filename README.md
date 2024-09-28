@@ -1,37 +1,33 @@
 # Comparing fitness dynamics across SARS-CoV-2, influenza H3 and influenza H1
 
-## Sequence counts
-
 _Only SARS-CoV-2 currently implemented_
+
+Run the entire workflow with
+```
+nextstrain build .
+```
+
+## Sequence counts
 
 Data for the project consists of daily sequence counts of clades of SARS-CoV-2,
 influenza H3 and influenza H1. Sequence counts are provisioned to the
 `sequence-counts/` directory. From top-level directory run
 ```
-nextstrain build sequence-counts all_sequence_counts
+nextstrain build . all_sequence_counts
 ```
 to produce the sequence counts files
 ```
-sequence-counts/results/sarscov2/seq_counts.tsv
+sequence-counts/sarscov2/prepared_seq_counts.tsv
 ```
 
 ## MLR estimates
 
-_Only SARS-CoV-2 currently implemented_
-
-Run MLR models using [evofr package](https://github.com/blab/evofr).
-
-Copy sequence counts from `sequence-counts` directory
+Run MLR models using [evofr package](https://github.com/blab/evofr). Run the
+model with
 ```
-mkdir -p mlr-estimates/data/sarscov2
-cp sequence-counts/results/sarscov2/seq_counts.tsv mlr-estimates/data/sarscov2/
-```
-
-Run the snakemake pipeline with
-```
-nextstrain build mlr-estimates
+nextstrain build . all_mlr_estimates
 ```
 to produce the MLR output JSON files
 ```
-mlr-estimates/results/sarscov2/mlr_results.json
+mlr-estimates/sarscov2/mlr_results.json
 ```

@@ -10,8 +10,7 @@ def _get_models_option(wildcards, option_name):
     If the *option* exists as a key within config['models'][wildcard.data_provenance][wildcard.variant_classification][wildcard.geo_resolution]
     then return as "--{option-name} {option_value}". Or else return an empty string.
     """
-    option_value = config.get('models', {}) \
-                         .get(wildcards.virus, {}) \
+    option_value = config.get(wildcards.virus, {}) \
                          .get(option_name)
 
     if option_value is not None:
@@ -23,18 +22,18 @@ def _get_models_option(wildcards, option_name):
 
 rule mlr_model:
     input:
-        sequence_counts = "data/{virus}/prepared_seq_counts.tsv"
+        sequence_counts = "sequence-counts/{virus}/prepared_seq_counts.tsv"
     output:
         # Note this output is not used in the shell command because it is one of the many
         # files generated and output to the export path.
         # We are listing this specific file as the output file because it is the final
         # final output of the model script.
-        results = "results/{virus}/mlr_results.json"
+        results = "mlr-estimates/{virus}/mlr_results.json"
     log:
         "logs/{virus}/mlr_model.txt"
     params:
         model_config = config.get("mlr_config"),
-        export_path = lambda w: f"results/{w.virus}",
+        export_path = lambda w: f"mlr-estimates/{w.virus}",
         pivot = lambda wildcards: _get_models_option(wildcards, 'pivot')
     resources:
         mem_mb=4000

@@ -1,0 +1,27 @@
+viruses:
+  - sarscov2
+
+sarscov2:
+  # prepare sequence count data
+  s3_metadata: s3://nextstrain-ncov-private/metadata.tsv.zst
+  subset_columns:
+    - strain
+    - date
+    - country
+    - clade_nextstrain
+    - QC_overall_status
+  seq_count_options: >-
+    --clade-column clade_nextstrain
+    --filter-columns QC_overall_status country
+    --filter-query "QC_overall_status != 'bad' & country == 'USA'"
+  included_days: 150
+  location_min_seq: 50
+  location_min_seq_days: 30
+  excluded_locations: "defaults/sarscov2_excluded_locations.txt"
+  clade_min_seq: 2000
+  clade_min_seq_days: 150
+  # run MLR estimates
+  pivot: "24A"
+
+
+mlr_config: "defaults/mlr-config.yaml"

@@ -3,6 +3,8 @@ data/
 logs/
 results/
 benchmarks/
+sequence-counts/
+mlr-estimates/
 
 # Errors from tests
 *.err
