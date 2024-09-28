@@ -14,3 +14,24 @@ to produce the sequence counts files
 ```
 sequence-counts/results/sarscov2/seq_counts.tsv
 ```
+
+## MLR estimates
+
+_Only SARS-CoV-2 currently implemented_
+
+Run MLR models using [evofr package](https://github.com/blab/evofr).
+
+Copy sequence counts from `sequence-counts` directory
+```
+mkdir -p mlr-estimates/data/sarscov2
+cp sequence-counts/results/sarscov2/seq_counts.tsv mlr-estimates/data/sarscov2/
+```
+
+Run the snakemake pipeline with
+```
+nextstrain build mlr-estimates
+```
+to produce the MLR output JSON files
+```
+mlr-estimates/results/sarscov2/mlr_results.json
+```

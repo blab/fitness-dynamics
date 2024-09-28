@@ -1,0 +1,49 @@
+import os
+
+KNOWN_MODELS = ["mlr"]
+
+if not config:
+    configfile: "config/config.yaml"
+
+if not config.get("viruses"):
+    print("ERROR: config must include 'viruses'.")
+    sys.exit(1)
+
+wildcard_constraints:
+    date = r"\d{4}-\d{2}-\d{2}"
+
+def get_todays_date():
+    from datetime import datetime
+    date = datetime.today().strftime('%Y-%m-%d')
+    return date
+
+# Check which models to run based on which model configs have been provided
+models_to_run = [
+    model_name
+    for model_name in KNOWN_MODELS
+    if config.get(f"{model_name}_config")
+]
+
+def _get_all_input(w):
+    viruses = config["viruses"] if isinstance(config["viruses"], list) else [config["viruses"]]
+
+    all_input = [
+        *expand(
+            "data/{virus}/prepared_seq_counts.tsv",
+            virus=viruses
+        )
+    ]
+
+    if models_to_run:
+        all_input.extend(expand(
+            "results/{virus}/mlr.json",
+            virus=viruses
+        ))
+
+    return all_input
+
+rule all:
+    input: _get_all_input
+
+include: "workflow/snakemake_rules/prepare_data.smk"
+include: "workflow/snakemake_rules/models.smk"

@@ -1,0 +1,23 @@
+# See sequence-counts/README.md for all available data
+viruses:
+  - sarscov2
+
+# Params for the prepare data scripts
+# Define params for each virus
+# Include `max_date` if you don't want to use today as the max date
+prepare_data:
+  sarscov2:
+    included_days: 150
+    location_min_seq: 50
+    location_min_seq_days: 30
+    excluded_locations: "defaults/sarscov2_excluded_locations.txt"
+    clade_min_seq: 2000
+    clade_min_seq_days: 150
+
+# Params for the model run scripts
+models:
+  sarscov2:
+    pivot: "24A"
+
+# Model configs
+mlr_config: "config/mlr-config.yaml"
