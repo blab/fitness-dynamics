@@ -102,7 +102,7 @@ class MLRConfig:
         if hier:
             ps = parse_pool_scale(model_cf)
             print("Hierarchical pool scale:", ps)
-            model = ef.HierMLR(tau=tau, pool_scale=ps)
+            model = ef.models.mlr_hierarchical_time_varying.HierMLRTime(tau=tau, pool_scale=ps, k=10)
         else:
             model = ef.MultinomialLogisticRegression(tau=tau)
         model.forecast_L = forecast_L
@@ -255,7 +255,7 @@ def make_raw_freq_tidy(data, location):
 
 def export_results(multi_posterior, ps, path, data_name, hier):
     EXPORT_SITES = ["freq", "ga"]
-    EXPORT_DATED = [True, False, True]
+    EXPORT_DATED = [True, True, True]
     EXPORT_FORECASTS = [False, False, True]
     EXPORT_ATTRS = ["pivot"]
 
