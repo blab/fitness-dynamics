@@ -1,15 +1,15 @@
-viruses:
-  - sarscov2-2020
-  - sarscov2-2020-21
-  - sarscov2-2021
-  - sarscov2-2021-22
-  - sarscov2-2022
-  - sarscov2-2022-23
-  - sarscov2-2023
-  - sarscov2-2023-24
-  - sarscov2-2024
+datasets:
+  - sarscov2_2020
+  - sarscov2_2020-21
+  - sarscov2_2021
+  - sarscov2_2021-22
+  - sarscov2_2022
+  - sarscov2_2022-23
+  - sarscov2_2023
+  - sarscov2_2023-24
+  - sarscov2_2024
 
-sarscov2-2020:
+sarscov2_2020:
   s3_metadata: s3://nextstrain-ncov-private/metadata.tsv.zst
   subset_columns:
     - strain
@@ -26,7 +26,7 @@ sarscov2-2020:
   clade_min_seq: 3000
   pivot: "19B"
 
-sarscov2-2020-21:
+sarscov2_2020-21:
   s3_metadata: s3://nextstrain-ncov-private/metadata.tsv.zst
   subset_columns:
     - strain
@@ -43,7 +43,7 @@ sarscov2-2020-21:
   clade_min_seq: 3000
   pivot: "20G"
 
-sarscov2-2021:
+sarscov2_2021:
   s3_metadata: s3://nextstrain-ncov-private/metadata.tsv.zst
   subset_columns:
     - strain
@@ -60,7 +60,7 @@ sarscov2-2021:
   clade_min_seq: 3000
   pivot: "21J"
 
-sarscov2-2021-22:
+sarscov2_2021-22:
   s3_metadata: s3://nextstrain-ncov-private/metadata.tsv.zst
   subset_columns:
     - strain
@@ -77,7 +77,7 @@ sarscov2-2021-22:
   clade_min_seq: 3000
   pivot: "21K"
 
-sarscov2-2022:
+sarscov2_2022:
   s3_metadata: s3://nextstrain-ncov-private/metadata.tsv.zst
   subset_columns:
     - strain
@@ -94,7 +94,7 @@ sarscov2-2022:
   clade_min_seq: 3000
   pivot: "22B"
 
-sarscov2-2022-23:
+sarscov2_2022-23:
   s3_metadata: s3://nextstrain-ncov-private/metadata.tsv.zst
   subset_columns:
     - strain
@@ -111,7 +111,7 @@ sarscov2-2022-23:
   clade_min_seq: 3000
   pivot: "22E"
 
-sarscov2-2023:
+sarscov2_2023:
   s3_metadata: s3://nextstrain-ncov-private/metadata.tsv.zst
   subset_columns:
     - strain
@@ -128,7 +128,7 @@ sarscov2-2023:
   clade_min_seq: 3000
   pivot: "23B"
 
-sarscov2-2023-24:
+sarscov2_2023-24:
   s3_metadata: s3://nextstrain-ncov-private/metadata.tsv.zst
   subset_columns:
     - strain
@@ -145,7 +145,7 @@ sarscov2-2023-24:
   clade_min_seq: 3000
   pivot: "24A"
 
-sarscov2-2024:
+sarscov2_2024:
   s3_metadata: s3://nextstrain-ncov-private/metadata.tsv.zst
   subset_columns:
     - strain
