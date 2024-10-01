@@ -1,8 +1,12 @@
 viruses:
   - sarscov2-2020
+  - sarscov2-2020-21
   - sarscov2-2021
+  - sarscov2-2021-22
   - sarscov2-2022
+  - sarscov2-2022-23
   - sarscov2-2023
+  - sarscov2-2023-24
   - sarscov2-2024
 
 sarscov2-2020:
@@ -19,8 +23,25 @@ sarscov2-2020:
     --filter-query "QC_overall_status != 'bad' & country == 'USA'"
   min_date: "2020-01-01"
   max_date: "2020-12-31"
-  clade_min_seq: 2000
-  pivot: "20A"
+  clade_min_seq: 3000
+  pivot: "19B"
+
+sarscov2-2020-21:
+  s3_metadata: s3://nextstrain-ncov-private/metadata.tsv.zst
+  subset_columns:
+    - strain
+    - date
+    - country
+    - clade_nextstrain
+    - QC_overall_status
+  seq_count_options: >-
+    --clade-column clade_nextstrain
+    --filter-columns QC_overall_status country
+    --filter-query "QC_overall_status != 'bad' & country == 'USA'"
+  min_date: "2020-07-01"
+  max_date: "2021-06-30"
+  clade_min_seq: 3000
+  pivot: "20G"
 
 sarscov2-2021:
   s3_metadata: s3://nextstrain-ncov-private/metadata.tsv.zst
@@ -36,8 +57,25 @@ sarscov2-2021:
     --filter-query "QC_overall_status != 'bad' & country == 'USA'"
   min_date: "2021-01-01"
   max_date: "2021-12-31"
-  clade_min_seq: 2000
-  pivot: "21A"
+  clade_min_seq: 3000
+  pivot: "21J"
+
+sarscov2-2021-22:
+  s3_metadata: s3://nextstrain-ncov-private/metadata.tsv.zst
+  subset_columns:
+    - strain
+    - date
+    - country
+    - clade_nextstrain
+    - QC_overall_status
+  seq_count_options: >-
+    --clade-column clade_nextstrain
+    --filter-columns QC_overall_status country
+    --filter-query "QC_overall_status != 'bad' & country == 'USA'"
+  min_date: "2021-07-01"
+  max_date: "2022-06-30"
+  clade_min_seq: 3000
+  pivot: "21K"
 
 sarscov2-2022:
   s3_metadata: s3://nextstrain-ncov-private/metadata.tsv.zst
@@ -53,8 +91,25 @@ sarscov2-2022:
     --filter-query "QC_overall_status != 'bad' & country == 'USA'"
   min_date: "2022-01-01"
   max_date: "2022-12-31"
-  clade_min_seq: 2000
-  pivot: "22A"
+  clade_min_seq: 3000
+  pivot: "22B"
+
+sarscov2-2022-23:
+  s3_metadata: s3://nextstrain-ncov-private/metadata.tsv.zst
+  subset_columns:
+    - strain
+    - date
+    - country
+    - clade_nextstrain
+    - QC_overall_status
+  seq_count_options: >-
+    --clade-column clade_nextstrain
+    --filter-columns QC_overall_status country
+    --filter-query "QC_overall_status != 'bad' & country == 'USA'"
+  min_date: "2022-07-01"
+  max_date: "2023-06-30"
+  clade_min_seq: 3000
+  pivot: "22E"
 
 sarscov2-2023:
   s3_metadata: s3://nextstrain-ncov-private/metadata.tsv.zst
@@ -70,8 +125,25 @@ sarscov2-2023:
     --filter-query "QC_overall_status != 'bad' & country == 'USA'"
   min_date: "2023-01-01"
   max_date: "2023-12-31"
-  clade_min_seq: 2000
-  pivot: "23A"
+  clade_min_seq: 3000
+  pivot: "23B"
+
+sarscov2-2023-24:
+  s3_metadata: s3://nextstrain-ncov-private/metadata.tsv.zst
+  subset_columns:
+    - strain
+    - date
+    - country
+    - clade_nextstrain
+    - QC_overall_status
+  seq_count_options: >-
+    --clade-column clade_nextstrain
+    --filter-columns QC_overall_status country
+    --filter-query "QC_overall_status != 'bad' & country == 'USA'"
+  min_date: "2023-07-01"
+  max_date: "2024-06-30"
+  clade_min_seq: 3000
+  pivot: "24A"
 
 sarscov2-2024:
   s3_metadata: s3://nextstrain-ncov-private/metadata.tsv.zst
@@ -87,7 +159,7 @@ sarscov2-2024:
     --filter-query "QC_overall_status != 'bad' & country == 'USA'"
   min_date: "2024-01-01"
   max_date: "2024-12-31"
-  clade_min_seq: 2000
+  clade_min_seq: 3000
   pivot: "24A"
 
 mlr_config: "defaults/mlr-config.yaml"

@@ -58,7 +58,7 @@ rule prepare_clade_data:
     log:
         "logs/{virus}/prepare_clade_data.txt"
     params:
-        min_date = lambda wildcards: _get_prepare_data_option(wildcards, 'min_date'),    
+        min_date = lambda wildcards: _get_prepare_data_option(wildcards, 'min_date'),
         max_date = lambda wildcards: _get_prepare_data_option(wildcards, 'max_date'),
         location_min_seq = lambda wildcards: _get_prepare_data_option(wildcards, 'location_min_seq'),
         location_min_seq_days = lambda wildcards: _get_prepare_data_option(wildcards, 'location_min_seq_days'),
@@ -66,6 +66,7 @@ rule prepare_clade_data:
         clade_min_seq = lambda wildcards: _get_prepare_data_option(wildcards, 'clade_min_seq'),
         clade_min_seq_days = lambda wildcards: _get_prepare_data_option(wildcards, 'clade_min_seq_days'),
         force_include_clades = lambda wildcards: _get_prepare_data_option(wildcards, 'force_include_clades'),
+        force_exclude_clades = lambda wildcards: _get_prepare_data_option(wildcards, 'force_exclude_clades')
     shell:
         """
         python ./scripts/prepare-data.py \
@@ -78,5 +79,6 @@ rule prepare_clade_data:
             {params.clade_min_seq} \
             {params.clade_min_seq_days} \
             {params.force_include_clades} \
+            {params.force_exclude_clades} \
             --output-seq-counts {output.sequence_counts} 2>&1 | tee {log}
         """

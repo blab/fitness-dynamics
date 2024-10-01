@@ -62,8 +62,9 @@ if __name__ == '__main__':
              "for counting the number of sequences per clade to determine if a clade is included as its own variant.\n"
              "If not provided, will count sequences from all dates included in analysis date range.")
     parser.add_argument("--force-include-clades", nargs="*",
-        help="Clades to force include in the output regardless of sequences counts. " +
-             "Must be formatted as <clade_name>=<variant_name>")
+        help="Clades to force include in the output regardless of sequences counts.")
+    parser.add_argument("--force-exclude-clades", nargs="*",
+        help="Clades to force exclude in the output regardless of sequences counts.")
     parser.add_argument("--output-seq-counts", required=True,
         help="Path to output TSV file for the prepared variants data.")
 
@@ -140,17 +141,18 @@ if __name__ == '__main__':
     # Keep track of clades that are force included so that they can bypass the sequence counts check
     force_included_clades = set()
     if args.force_include_clades:
-        for force_include_clade in args.force_include_clades:
-            force_include = force_include_clade.split('=')
-            if len(force_include) != 2:
-                print(f"ERROR: Unable to parse force include clade {force_include_clade!r}.")
-                sys.exit(1)
+        for variant in args.force_include_clades:
+            force_included_clades.add(variant)
 
-            clade, variant = force_include
-            seq_counts.loc[seq_counts['clade'] == clade, 'variant'] = variant
-            force_included_clades.add(clade)
+        print(f"Force including the following variants: {args.force_include_clades}")
 
-        print(f"Force including the following clades/variants: {args.force_include_clades}")
+    # Keep track of clades that are force excluded so that they can bypass the sequence counts check
+    force_excluded_clades = set()
+    if args.force_exclude_clades:
+        for variant in args.force_exclude_clades:
+            force_excluded_clades.add(variant)
+
+        print(f"Force excluding the following variants: {args.force_exclude_clades}")
 
     # Collapse small clades into "other" if clades-min-seq is provided
     if args.clade_min_seq:
@@ -183,8 +185,11 @@ if __name__ == '__main__':
         # Get a set of clades that meet the clade_min_seq requirement
         clades_with_min_seq = set(seqs_per_clade.loc[seqs_per_clade['sequences'] >= args.clade_min_seq, 'clade'])
 
+        # Remove force excluded clades from this list
+        clades_to_keep = clades_with_min_seq - force_excluded_clades
+
         # Replace variant with 'other' if they are not force included and do not meet the clade_min_seq requirement
-        seq_counts.loc[~seq_counts['clade'].isin(force_included_clades | clades_with_min_seq), 'variant'] = 'other'
+        seq_counts.loc[~seq_counts['clade'].isin(force_included_clades | clades_to_keep), 'variant'] = 'other'
 
     # Replace 'recombinant' clade with 'other'
     seq_counts.loc[seq_counts['clade'].isin(['recombinant']), 'variant'] = 'other'
