@@ -1,7 +1,5 @@
 # Comparing fitness dynamics across SARS-CoV-2, influenza H3 and influenza H1
 
-_Only SARS-CoV-2 currently implemented_
-
 ## Provision metadata locally
 
 ```
@@ -15,6 +13,19 @@ aws s3 cp s3://nextstrain-ncov-private/metadata.tsv.zst sarscov2_metadata.tsv.zs
 zstd -c -d sarscov2_metadata.tsv.zst \
    | tsv-select -H -f strain,date,country,clade_nextstrain,QC_overall_status \
    | zstd -c > sarscov2_subset_metadata.tsv.zst
+```
+and move to `fitness-dynamics/data/`.
+
+For H3N2, clone https://github.com/blab/flu-geo-fitness and then run
+```
+nextstrain build . data/h3n2/metadata_with_nextclade.tsv
+cd data/h3n2/
+sed -i -e 's/\tseqName\t/\tstrain\t/' metadata_with_nextclade.tsv
+sed -i -e 's/\tUsa\t/\tUSA\t/g' metadata_with_nextclade.tsv
+sed -i -e '1s/$/\tinclusion/; 2,$s/$/\tglobal/' metadata_with_nextclade.tsv
+tsv-select -H -f strain,date,country,inclusion,subclade,qc.overallStatus metadata_with_nextclade.tsv > metadata_selected.tsv
+tsv-filter -H --str-ne subclade:unassigned --str-gt date:2000-01-01 metadata_selected.tsv > metadata_filtered.tsv
+zstd -c metadata_filtered.tsv > h3n2_subset_metadata.tsv.zst
 ```
 and move to `fitness-dynamics/data/`.
 
