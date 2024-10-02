@@ -86,11 +86,11 @@ class MLRConfig:
 
         return raw_seq, locations
 
-    def load_model(self, override_hier=None):
+    def load_model(self, override_hier=None, generation_time=4.8):
         model_cf = self.config["model"]
 
         # Processing generation time
-        tau = parse_generation_time(model_cf)
+        tau = generation_time
         forecast_L = parse_with_default(model_cf, "forecast_L", dflt=30)
         hier = parse_with_default(model_cf, "hierarchical", dflt=False)
         if override_hier is not None:
@@ -354,7 +354,11 @@ if __name__ == "__main__":
         "--pivot",
         help="Variant to use as pivot. Overrides model.pivot in config.",
     )
-
+    parser.add_argument(
+        "--generation-time",
+        type=float,
+        help="Generation time to use. Overrides model.generation_time in config.",
+    )
     parser.add_argument(
         "--hier",  action='store_true', default=False,
         help="Whether to run the model as hierarchical. Overrides model.hierarchical in config. "
@@ -373,7 +377,15 @@ if __name__ == "__main__":
     if args.hier:
         override_hier = args.hier
 
-    mlr_model, hier = config.load_model(override_hier=override_hier)
+    # Use mlr config generation time unless a dataset-specific generation time is specified
+    generation_time = None
+    if config.config["model"]["generation_time"]:
+        generation_time = config.config["model"]["generation_time"]
+    if args.generation_time and args.generation_time != "None":
+        generation_time = args.generation_time
+    print("generation_time", generation_time)
+
+    mlr_model, hier = config.load_model(override_hier=override_hier, generation_time=generation_time)
     print("Model created.")
 
     inference_method = config.load_optim()
@@ -416,7 +428,7 @@ if __name__ == "__main__":
             raw_seq,
             locations,
             mlr_model,
-            export_path,
+            export_path
         )
     else:
         print("No models fit or results loaded.")

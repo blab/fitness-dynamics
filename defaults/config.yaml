@@ -8,27 +8,16 @@ datasets:
   - sarscov2_2023
   - sarscov2_2023-24
   - sarscov2_2024
-  - h3n2_2016
   - h3n2_2016-17
-  - h3n2_2017
   - h3n2_2017-18
-  - h3n2_2018
   - h3n2_2018-19
-  - h3n2_2019
   - h3n2_2019-20
-  - h3n2_2020
   - h3n2_2020-21
+  - h3n2_2021-22
+  - h3n2_2022-23
+  - h3n2_2023-24
 
-h3n2_2016:
-  local_metadata: "data/h3n2_subset_metadata.tsv.zst"
-  seq_count_options: >-
-    --clade-column subclade
-    --filter-columns country
-    --filter-query "country == 'USA'"
-  min_date: "2016-01-01"
-  max_date: "2016-12-31"
-  clade_min_seq: 100
-  pivot: "B"
+# H3N2 uses a 2-year analysis window and slides 1-year forward
 
 h3n2_2016-17:
   local_metadata: "data/h3n2_subset_metadata.tsv.zst"
@@ -36,21 +25,11 @@ h3n2_2016-17:
     --clade-column subclade
     --filter-columns country
     --filter-query "country == 'USA'"
-  min_date: "2016-07-01"
-  max_date: "2017-06-30"
-  clade_min_seq: 100
-  pivot: "B.1"
-
-h3n2_2017:
-  local_metadata: "data/h3n2_subset_metadata.tsv.zst"
-  seq_count_options: >-
-    --clade-column subclade
-    --filter-columns country
-    --filter-query "country == 'USA'"
-  min_date: "2017-01-01"
+  min_date: "2016-01-01"
   max_date: "2017-12-31"
   clade_min_seq: 100
-  pivot: "B.2"
+  pivot: "B.1"
+  generation_time: 3.2 
 
 h3n2_2017-18:
   local_metadata: "data/h3n2_subset_metadata.tsv.zst"
@@ -58,21 +37,11 @@ h3n2_2017-18:
     --clade-column subclade
     --filter-columns country
     --filter-query "country == 'USA'"
-  min_date: "2017-07-01"
-  max_date: "2018-06-30"
-  clade_min_seq: 100
-  pivot: "B.2"
-
-h3n2_2018:
-  local_metadata: "data/h3n2_subset_metadata.tsv.zst"
-  seq_count_options: >-
-    --clade-column subclade
-    --filter-columns country
-    --filter-query "country == 'USA'"
-  min_date: "2018-01-01"
+  min_date: "2017-01-01"
   max_date: "2018-12-31"
   clade_min_seq: 100
   pivot: "B.2"
+  generation_time: 3.2
 
 h3n2_2018-19:
   local_metadata: "data/h3n2_subset_metadata.tsv.zst"
@@ -80,21 +49,11 @@ h3n2_2018-19:
     --clade-column subclade
     --filter-columns country
     --filter-query "country == 'USA'"
-  min_date: "2018-07-01"
-  max_date: "2019-06-30"
-  clade_min_seq: 100
-  pivot: "C.1"
-
-h3n2_2019:
-  local_metadata: "data/h3n2_subset_metadata.tsv.zst"
-  seq_count_options: >-
-    --clade-column subclade
-    --filter-columns country
-    --filter-query "country == 'USA'"
-  min_date: "2019-01-01"
+  min_date: "2018-01-01"
   max_date: "2019-12-31"
   clade_min_seq: 100
   pivot: "C.1"
+  generation_time: 3.2
 
 h3n2_2019-20:
   local_metadata: "data/h3n2_subset_metadata.tsv.zst"
@@ -102,10 +61,59 @@ h3n2_2019-20:
     --clade-column subclade
     --filter-columns country
     --filter-query "country == 'USA'"
-  min_date: "2019-07-01"
-  max_date: "2020-06-30"
+  min_date: "2019-01-01"
+  max_date: "2020-12-31"
   clade_min_seq: 100
   pivot: "E.2"
+  generation_time: 3.2
+
+h3n2_2020-21:
+  local_metadata: "data/h3n2_subset_metadata.tsv.zst"
+  seq_count_options: >-
+    --clade-column subclade
+    --filter-columns country
+    --filter-query "country == 'USA'"
+  min_date: "2020-01-01"
+  max_date: "2021-12-31"
+  clade_min_seq: 50
+  pivot: "G.1.1.1"
+  generation_time: 3.2
+
+h3n2_2021-22:
+  local_metadata: "data/h3n2_subset_metadata.tsv.zst"
+  seq_count_options: >-
+    --clade-column subclade
+    --filter-columns country
+    --filter-query "country == 'USA'"
+  min_date: "2021-01-01"
+  max_date: "2022-12-31"
+  clade_min_seq: 50
+  pivot: "G.1.1.1"
+  generation_time: 3.2
+
+h3n2_2022-23:
+  local_metadata: "data/h3n2_subset_metadata.tsv.zst"
+  seq_count_options: >-
+    --clade-column subclade
+    --filter-columns country
+    --filter-query "country == 'USA'"
+  min_date: "2022-01-01"
+  max_date: "2023-12-31"
+  clade_min_seq: 100
+  pivot: "G.2"
+  generation_time: 3.2
+
+h3n2_2023-24:
+  local_metadata: "data/h3n2_subset_metadata.tsv.zst"
+  seq_count_options: >-
+    --clade-column subclade
+    --filter-columns country
+    --filter-query "country == 'USA'"
+  min_date: "2023-01-01"
+  max_date: "2024-12-31"
+  clade_min_seq: 100
+  pivot: "J.2"
+  generation_time: 3.2
 
 sarscov2_2020:
   local_metadata: "data/sarscov2_subset_metadata.tsv.zst"
@@ -117,6 +125,7 @@ sarscov2_2020:
   max_date: "2020-12-31"
   clade_min_seq: 3000
   pivot: "19B"
+  generation_time: 3.2
 
 sarscov2_2020:
   local_metadata: "data/sarscov2_subset_metadata.tsv.zst"
@@ -128,6 +137,7 @@ sarscov2_2020:
   max_date: "2020-12-31"
   clade_min_seq: 3000
   pivot: "19B"
+  generation_time: 3.2
 
 sarscov2_2020-21:
   local_metadata: "data/sarscov2_subset_metadata.tsv.zst"
@@ -139,6 +149,7 @@ sarscov2_2020-21:
   max_date: "2021-06-30"
   clade_min_seq: 3000
   pivot: "20G"
+  generation_time: 3.2
 
 sarscov2_2021:
   local_metadata: "data/sarscov2_subset_metadata.tsv.zst"
@@ -150,6 +161,7 @@ sarscov2_2021:
   max_date: "2021-12-31"
   clade_min_seq: 3000
   pivot: "21J"
+  generation_time: 3.2
 
 sarscov2_2021-22:
   local_metadata: "data/sarscov2_subset_metadata.tsv.zst"
@@ -161,6 +173,7 @@ sarscov2_2021-22:
   max_date: "2022-06-30"
   clade_min_seq: 3000
   pivot: "21K"
+  generation_time: 3.2
 
 sarscov2_2022:
   local_metadata: "data/sarscov2_subset_metadata.tsv.zst"
@@ -172,6 +185,7 @@ sarscov2_2022:
   max_date: "2022-12-31"
   clade_min_seq: 3000
   pivot: "22B"
+  generation_time: 3.2
 
 sarscov2_2022-23:
   local_metadata: "data/sarscov2_subset_metadata.tsv.zst"
@@ -183,6 +197,7 @@ sarscov2_2022-23:
   max_date: "2023-06-30"
   clade_min_seq: 3000
   pivot: "22E"
+  generation_time: 3.2
 
 sarscov2_2023:
   local_metadata: "data/sarscov2_subset_metadata.tsv.zst"
@@ -194,6 +209,7 @@ sarscov2_2023:
   max_date: "2023-12-31"
   clade_min_seq: 3000
   pivot: "23B"
+  generation_time: 3.2
 
 sarscov2_2023-24:
   local_metadata: "data/sarscov2_subset_metadata.tsv.zst"
@@ -205,6 +221,7 @@ sarscov2_2023-24:
   max_date: "2024-06-30"
   clade_min_seq: 3000
   pivot: "24A"
+  generation_time: 3.2
 
 sarscov2_2024:
   local_metadata: "data/sarscov2_subset_metadata.tsv.zst"
@@ -216,5 +233,6 @@ sarscov2_2024:
   max_date: "2024-12-31"
   clade_min_seq: 3000
   pivot: "24A"
+  generation_time: 3.2
 
 mlr_config: "defaults/mlr-config.yaml"
