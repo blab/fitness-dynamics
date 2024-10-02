@@ -2,12 +2,30 @@
 
 _Only SARS-CoV-2 currently implemented_
 
-Run the entire workflow with
+## Provision metadata locally
+
 ```
-nextstrain build .
+mkdir data
+cd data
 ```
 
-## Sequence counts
+For SARS-CoV-2
+```
+aws s3 cp s3://nextstrain-ncov-private/metadata.tsv.zst sarscov2_metadata.tsv.zst
+zstd -c -d sarscov2_metadata.tsv.zst \
+   | tsv-select -H -f strain,date,country,clade_nextstrain,QC_overall_status \
+   | zstd -c > sarscov2_subset_metadata.tsv.zst
+```
+and move to `fitness-dynamics/data/`.
+
+## Workflow
+
+Once metadata is provisioned locally, run the entire workflow with
+```
+nextstrain build . all_mlr_estimates
+```
+
+### Sequence counts
 
 Data for the project consists of daily sequence counts of clades of SARS-CoV-2,
 influenza H3 and influenza H1. Sequence counts are provisioned to the
@@ -21,7 +39,7 @@ sequence-counts/sarscov2/prepared_seq_counts.tsv
 ```
 Currently, clade counts are provisioned for just the USA.
 
-## MLR estimates
+### MLR estimates
 
 Run MLR models using [evofr package](https://github.com/blab/evofr). Run the
 model with

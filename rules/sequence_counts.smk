@@ -2,23 +2,23 @@
 Summarize sequence counts from existing metadata for a particular dataset
 """
 
-rule subset_metadata:
-    output:
-        subset_metadata = "sequence-counts/{dataset}/subset_metadata.tsv.zst"
-    params:
-        s3_src = lambda w: config[w.dataset]["s3_metadata"],
-        subset_columns = lambda w: ",".join(config[w.dataset]["subset_columns"]),
-    shell:
-        """
-        aws s3 cp {params.s3_src:q} - \
-            | zstd -c -d \
-            | tsv-select -H -f {params.subset_columns:q} \
-            | zstd -c > {output.subset_metadata}
-        """
+# rule subset_metadata:
+#     input:
+#         metadata = lambda w: config[w.dataset]["local_metadata"]
+#     output:
+#         subset_metadata = "sequence-counts/{dataset}/subset_metadata.tsv.zst"
+#     params:
+#         subset_columns = lambda w: ",".join(config[w.dataset]["subset_columns"]),
+#     shell:
+#         """
+#         zstd -c -d {input.metadata} \
+#             | tsv-select -H -f {params.subset_columns:q} \
+#             | zstd -c > {output.subset_metadata}
+#         """
 
 rule summarize_clade_sequence_counts:
     input:
-        subset_metadata = "sequence-counts/{dataset}/subset_metadata.tsv.zst"
+        subset_metadata = lambda w: config[w.dataset]["local_metadata"]
     output:
         clade_seq_counts = "sequence-counts/{dataset}/seq_counts.tsv"
     params:
