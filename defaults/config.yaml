@@ -262,7 +262,7 @@ sarscov2_lineages_2020:
   min_date: "2020-01-01"
   max_date: "2020-12-31"
   clade_min_seq: 1
-  collapse_threshold: 10000
+  collapse_threshold: 5000
   generation_time: 3.2
 
 sarscov2_lineages_2020-21:
@@ -275,7 +275,7 @@ sarscov2_lineages_2020-21:
   min_date: "2020-07-01"
   max_date: "2021-06-30"
   clade_min_seq: 1
-  collapse_threshold: 10000
+  collapse_threshold: 5000
   generation_time: 3.2
 
 sarscov2_lineages_2021:
@@ -288,7 +288,7 @@ sarscov2_lineages_2021:
   min_date: "2021-01-01"
   max_date: "2021-12-31"
   clade_min_seq: 1
-  collapse_threshold: 10000
+  collapse_threshold: 5000
   generation_time: 3.2
 
 sarscov2_lineages_2021-22:
@@ -301,7 +301,7 @@ sarscov2_lineages_2021-22:
   min_date: "2021-07-01"
   max_date: "2022-06-30"
   clade_min_seq: 1
-  collapse_threshold: 10000
+  collapse_threshold: 5000
   generation_time: 3.2
 
 sarscov2_lineages_2022:
@@ -314,7 +314,7 @@ sarscov2_lineages_2022:
   min_date: "2022-01-01"
   max_date: "2022-12-31"
   clade_min_seq: 1
-  collapse_threshold: 10000
+  collapse_threshold: 5000
   generation_time: 3.2
 
 sarscov2_lineages_2022-23:
@@ -327,7 +327,7 @@ sarscov2_lineages_2022-23:
   min_date: "2022-07-01"
   max_date: "2023-06-30"
   clade_min_seq: 1
-  collapse_threshold: 10000
+  collapse_threshold: 5000
   generation_time: 3.2
 
 sarscov2_lineages_2023:
@@ -340,7 +340,7 @@ sarscov2_lineages_2023:
   min_date: "2023-01-01"
   max_date: "2023-12-31"
   clade_min_seq: 1
-  collapse_threshold: 10000
+  collapse_threshold: 5000
   generation_time: 3.2
 
 sarscov2_lineages_2023-24:
@@ -353,7 +353,7 @@ sarscov2_lineages_2023-24:
   min_date: "2023-07-01"
   max_date: "2024-06-30"
   clade_min_seq: 1
-  collapse_threshold: 10000
+  collapse_threshold: 5000
   generation_time: 3.2
 
 sarscov2_lineages_2024:
@@ -366,7 +366,7 @@ sarscov2_lineages_2024:
   min_date: "2024-01-01"
   max_date: "2024-12-31"
   clade_min_seq: 1
-  collapse_threshold: 10000
+  collapse_threshold: 5000
   generation_time: 3.2
 
 mlr_config: "defaults/mlr-config.yaml"
