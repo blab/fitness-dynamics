@@ -8,15 +8,15 @@ datasets:
   - sarscov2_clades_2023
   - sarscov2_clades_2023-24
   - sarscov2_clades_2024
-  # - sarscov2_lineages_2020
-  # - sarscov2_lineages_2020-21
-  # - sarscov2_lineages_2021
-  # - sarscov2_lineages_2021-22
-  # - sarscov2_lineages_2022
-  # - sarscov2_lineages_2022-23
-  # - sarscov2_lineages_2023
-  # - sarscov2_lineages_2023-24
-  # - sarscov2_lineages_2024
+  - sarscov2_lineages_2020
+  - sarscov2_lineages_2020-21
+  - sarscov2_lineages_2021
+  - sarscov2_lineages_2021-22
+  - sarscov2_lineages_2022
+  - sarscov2_lineages_2022-23
+  - sarscov2_lineages_2023
+  - sarscov2_lineages_2023-24
+  - sarscov2_lineages_2024
   - h3n2_clades_2016-17
   - h3n2_clades_2017-18
   - h3n2_clades_2018-19
