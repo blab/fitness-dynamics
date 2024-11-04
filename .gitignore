@@ -6,6 +6,11 @@ benchmarks/
 sequence-counts/
 mlr-estimates/
 
+# Specific Auspice JSONs
+ncov_gisaid_global_all-time.json
+ncov_gisaid_global_all-time_root-sequence.json
+ncov_gisaid_global_all-time_tip-frequencies.json
+
 # Errors from tests
 *.err
 

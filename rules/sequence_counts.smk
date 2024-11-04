@@ -82,3 +82,21 @@ rule prepare_clade_data:
             {params.force_exclude_clades} \
             --output-seq-counts {output.sequence_counts} 2>&1 | tee {log}
         """
+
+rule collapse_sequence_counts:
+    "Collapsing Pango lineages, based on sequence count threshold"
+    input:
+        sequence_counts = "sequence-counts/{dataset}/prepared_seq_counts.tsv",
+    output:
+        sequence_counts = "sequence-counts/{dataset}/collapsed_seq_counts.tsv"
+    log:
+        "logs/{dataset}/collapse_sequence_counts.txt"
+    params:
+        collapse_threshold = lambda wildcards: _get_prepare_data_option(wildcards, 'collapse_threshold'),
+    shell:
+        """
+        python ./scripts/collapse-lineage-counts.py \
+            --seq-counts {input.sequence_counts} \
+            {params.collapse_threshold} \
+            --output-seq-counts {output.sequence_counts} 2>&1 | tee {log}
+        """

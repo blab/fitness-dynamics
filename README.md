@@ -11,7 +11,7 @@ For SARS-CoV-2
 ```
 aws s3 cp s3://nextstrain-ncov-private/metadata.tsv.zst sarscov2_metadata.tsv.zst
 zstd -c -d sarscov2_metadata.tsv.zst \
-   | tsv-select -H -f strain,date,country,clade_nextstrain,QC_overall_status \
+   | tsv-select -H -f strain,date,country,clade_nextstrain,Nextclade_pango,QC_overall_status \
    | zstd -c > sarscov2_subset_metadata.tsv.zst
 ```
 and move to `fitness-dynamics/data/`.
