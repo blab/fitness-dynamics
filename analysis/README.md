@@ -26,16 +26,16 @@ Run `nextstrain remote download https://nextstrain.org/ncov/gisaid/global/all-ti
 
 ### Empirical frequencies vs MLR modeled frequencies
 
-![](figures/h3n2_time_vs_frequency.png)
+![](figures/h3n2_clades_time_vs_frequency.png)
 
 ### Time vs MLR fitness
 
-![](figures/h3n2_time_vs_fitness.png)
+![](figures/h3n2_clades_time_vs_fitness.png)
 
 ### Time vs S1 mutation count
 
-![](figures/h3n2_time_vs_mut_count.png)
+![](figures/h3n2_clades_time_vs_mut_count.png)
 
 ### S1 mutation count vs MLR fitness
 
-![](figures/h3n2_mut_count_vs_fitness.png)
+![](figures/h3n2_clades_mut_count_vs_fitness.png)
