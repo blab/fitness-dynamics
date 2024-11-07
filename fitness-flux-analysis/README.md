@@ -22,6 +22,14 @@ Run `nextstrain remote download https://nextstrain.org/ncov/gisaid/global/all-ti
 
 ![](figures/sarscov2_clades_mut_count_vs_fitness.png)
 
+### Population average cumulative fitness flux
+
+![](figures/sarscov2_clades_flux_location.png)
+
+### Fitness Variance vs fitness velocity
+
+![](figures/sarscov2_clades_flux_variance_vs_velocity.png)
+
 ## SARS-CoV-2 lineages
 
 ### Empirical frequencies vs MLR modeled frequencies
@@ -58,3 +66,11 @@ Run `nextstrain remote download https://nextstrain.org/ncov/gisaid/global/all-ti
 ### S1 mutation count vs MLR fitness
 
 ![](figures/h3n2_clades_mut_count_vs_fitness.png)
+
+### Population average cumulative fitness flux
+
+![](figures/h3n2_clades_flux_location.png)
+
+### Fitness Variance vs fitness velocity
+
+![](figures/h3n2_clades_flux_variance_vs_velocity.png)
