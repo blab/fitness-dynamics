@@ -27,7 +27,7 @@ to produce the sequence counts files
 ```
 sequence-counts/7PET/prepared_seq_counts.tsv
 ```
-Currently, clade counts are provisioned for just the India, Bangladesh, China, and DRC.
+Currently, clade counts are provisioned for just India, Bangladesh, China, and DRC.
 
 ### MLR estimates
 
