@@ -2,13 +2,15 @@
 # coding: utf-8
 
 import argparse
+import json
+import os
+from datetime import date
+
+import evofr as ef
 import numpy as np
 import pandas as pd
-import os
 import yaml
-import json
-import evofr as ef
-from datetime import date
+
 
 def parse_with_default(cf, var, dflt):
     if var in cf:
@@ -17,13 +19,16 @@ def parse_with_default(cf, var, dflt):
         print(f"Using default value for {var}")
         return dflt
 
+
 def parse_generation_time(cf_m):
     tau = parse_with_default(cf_m, "generation_time", 4.8)
     return tau
 
+
 def parse_pool_scale(cf_m):
     pool_scale = parse_with_default(cf_m, "pool_scale", 0.1)
     return pool_scale
+
 
 class NUTS_from_MAP:
     def __init__(self, num_warmup, num_samples, iters, lr):
@@ -113,9 +118,7 @@ class MLRConfig:
         lr = float(parse_with_default(infer_cf, "lr", dflt=1e-2))
         iters = int(parse_with_default(infer_cf, "iters", dflt=50000))
         num_warmup = int(parse_with_default(infer_cf, "num_warmup", dflt=500))
-        num_samples = int(
-            parse_with_default(infer_cf, "num_samples", dflt=1500)
-        )
+        num_samples = int(parse_with_default(infer_cf, "num_samples", dflt=1500))
 
         method_name = parse_with_default(infer_cf, "method", dflt="FullRank")
         inference_method = parse_inference_method(
@@ -128,24 +131,35 @@ class MLRConfig:
         fit = parse_with_default(settings_cf, "fit", dflt=False)
         save = parse_with_default(settings_cf, "save", dflt=False)
         load = parse_with_default(settings_cf, "load", dflt=False)
-        export_json = parse_with_default(
-            settings_cf, "export_json", dflt=False
-        )
+        export_json = parse_with_default(settings_cf, "export_json", dflt=False)
         export_path = override_export_path or parse_with_default(
             settings_cf, "export_path", dflt=None
         )
         return fit, save, load, export_json, export_path
 
 
-
-
-def fit_models(rs, locations, model, inference_method, hier, path, save, pivot=None):
+def fit_models(
+    rs,
+    locations,
+    model,
+    inference_method,
+    hier,
+    path,
+    save,
+    pivot=None,
+    temporal_aggregation=None,
+):
     multi_posterior = ef.MultiPosterior()
 
     if hier:
         # Subset data to locations of interest
         raw_seq = rs[rs.location.isin(locations)]
-        data = ef.HierFrequencies(raw_seq=raw_seq, pivot=pivot, group="location")
+        data = ef.HierFrequencies(
+            raw_seq=raw_seq,
+            pivot=pivot,
+            group="location",
+            temporal_aggregation=temporal_aggregation,
+        )
 
         # Fit model
         posterior = inference_method.fit(model, data, name="hierarchical")
@@ -164,7 +178,9 @@ def fit_models(rs, locations, model, inference_method, hier, path, save, pivot=N
                 print(f"Location {location} not in data")
                 continue
 
-            data = ef.VariantFrequencies(raw_seq=raw_seq, pivot=pivot)
+            data = ef.VariantFrequencies(
+                raw_seq=raw_seq, pivot=pivot, temporal_aggregation=temporal_aggregation
+            )
 
             # Fit model
             posterior = inference_method.fit(model, data, name=location)
@@ -218,11 +234,13 @@ def make_raw_freq_tidy(data, location):
 
     # Calculate the 7-day moving sum for each of the clades
     kernel = np.ones(7)  # 7-day window
-    numerator = np.apply_along_axis(lambda x: np.convolve(x, kernel, mode='same'), axis=0, arr=data.seq_counts)
+    numerator = np.apply_along_axis(
+        lambda x: np.convolve(x, kernel, mode="same"), axis=0, arr=data.seq_counts
+    )
 
     # Calculate the 7-day moving sum for the total count across all clades (Denominator)
     total_counts = data.seq_counts.sum(axis=1)
-    denominator = np.convolve(total_counts, kernel, mode='same')
+    denominator = np.convolve(total_counts, kernel, mode="same")
 
     # Calculate the 7-day smoothed daily frequency
     weekly_raw_freq = numerator / denominator[:, None]
@@ -232,23 +250,26 @@ def make_raw_freq_tidy(data, location):
         "dates": data.dates,
         "variants": data.var_names,
         "sites": ["weekly_raw_freq"],
-        "location": [location]
+        "location": [location],
     }
 
     # Tidy entries
     entries = []
     for v, variant in enumerate(variants):
         for day, d in date_map.items():
-            entries.append({
-                "location": location,
-                "site": "weekly_raw_freq",
-                "variant": variant,
-                "date": day.strftime("%Y-%m-%d"),
-                "value": (
-                    None
-                    if np.isnan(weekly_raw_freq[d, v])
-                    else np.around(weekly_raw_freq[d, v], decimals=3))
-            })
+            entries.append(
+                {
+                    "location": location,
+                    "site": "weekly_raw_freq",
+                    "variant": variant,
+                    "date": day.strftime("%Y-%m-%d"),
+                    "value": (
+                        None
+                        if np.isnan(weekly_raw_freq[d, v])
+                        else np.around(weekly_raw_freq[d, v], decimals=3)
+                    ),
+                }
+            )
 
     return {"metadata": metadata, "data": entries}
 
@@ -264,6 +285,7 @@ def export_results(multi_posterior, ps, path, data_name, hier):
 
     # Split hierarchical results into group posteriors
     if hier:
+
         def get_group_samples(samples, sites, group):
             samples_group = dict()
             for site in sites:
@@ -278,17 +300,19 @@ def export_results(multi_posterior, ps, path, data_name, hier):
         for n, name in enumerate(hier_data.names):
             hier_data.groups[n].dates = hier_data.dates
             multi_posterior.add_posterior(
-                 ef.PosteriorHandler(
+                ef.PosteriorHandler(
                     samples=get_group_samples(hier_samples, EXPORT_SITES, n),
                     data=hier_data.groups[n],
-                    name=name)
+                    name=name,
+                )
             )
         # Add final posterior for hierarchical growth advantages
         multi_posterior.add_posterior(
             ef.PosteriorHandler(
                 samples={"ga": hier_samples["ga_loc"]},
                 data=hier_data,
-                name="hierarchical")
+                name="hierarchical",
+            )
         )
 
     # Combine jsons from multiple model runs
@@ -303,7 +327,7 @@ def export_results(multi_posterior, ps, path, data_name, hier):
                     [False],
                     [False],
                     ps,
-                    location
+                    location,
                 )
             )
         else:
@@ -322,9 +346,7 @@ def export_results(multi_posterior, ps, path, data_name, hier):
     # Add raw frequencies
     for location, posterior in multi_posterior.locator.items():
         if location != "hierarchical":
-            results.append(
-                make_raw_freq_tidy(posterior.data, location)
-            )
+            results.append(make_raw_freq_tidy(posterior.data, location))
 
     results = ef.posterior.combine_sites_tidy(results)
     results["metadata"]["updated"] = pd.to_datetime(date.today())
@@ -333,9 +355,7 @@ def export_results(multi_posterior, ps, path, data_name, hier):
 
 if __name__ == "__main__":
 
-    parser = argparse.ArgumentParser(
-        description="Estimating variant growth rates."
-    )
+    parser = argparse.ArgumentParser(description="Estimating variant growth rates.")
     parser.add_argument("--config", help="path to config file")
     parser.add_argument(
         "--seq-path",
@@ -360,9 +380,16 @@ if __name__ == "__main__":
         help="Generation time to use. Overrides model.generation_time in config.",
     )
     parser.add_argument(
-        "--hier",  action='store_true', default=False,
+        "--temporal-aggregation",
+        type=str,
+        help="Frequency at which to aggregate temporally. Overrides model.temporal-aggregation in config.",
+    )
+    parser.add_argument(
+        "--hier",
+        action="store_true",
+        default=False,
         help="Whether to run the model as hierarchical. Overrides model.hierarchical in config. "
-        + "Default is false if unspecified."
+        + "Default is false if unspecified.",
     )
     args = parser.parse_args()
 
@@ -385,15 +412,15 @@ if __name__ == "__main__":
         generation_time = args.generation_time
     print("generation_time", generation_time)
 
-    mlr_model, hier = config.load_model(override_hier=override_hier, generation_time=generation_time)
+    mlr_model, hier = config.load_model(
+        override_hier=override_hier, generation_time=generation_time
+    )
     print("Model created.")
 
     inference_method = config.load_optim()
     print("Inference method defined.")
 
-    fit, save, load, export_json, export_path = config.load_settings(
-        args.export_path
-    )
+    fit, save, load, export_json, export_path = config.load_settings(args.export_path)
     print("Settings loaded")
 
     # Find export path
@@ -409,6 +436,12 @@ if __name__ == "__main__":
         pivot = args.pivot
     print("pivot", pivot)
 
+    # Decide level of temporal aggregation
+    # Use mlr config
+    temporal_aggregation = None
+    if args.temporal_aggregation:
+        temporal_aggregation = args.generation_time
+
     # Fit or load model results
     if fit:
         print("Fitting model")
@@ -420,16 +453,12 @@ if __name__ == "__main__":
             hier,
             export_path,
             save,
-            pivot=pivot
+            pivot=pivot,
+            temporal_aggregation=args.temporal_aggregation,
         )
     elif load:
         print("Loading results")
-        multi_posterior = load_models(
-            raw_seq,
-            locations,
-            mlr_model,
-            export_path
-        )
+        multi_posterior = load_models(raw_seq, locations, mlr_model, export_path)
     else:
         print("No models fit or results loaded.")
         multi_posterior = ef.MultiPosterior()
@@ -437,8 +466,6 @@ if __name__ == "__main__":
     # Export results
     if export_json and (fit or load):
         print(f"Exporting results as .json at {export_path}")
-        ps = parse_with_default(
-            config.config["settings"], "ps", dflt=[0.5, 0.8, 0.95]
-        )
+        ps = parse_with_default(config.config["settings"], "ps", dflt=[0.5, 0.8, 0.95])
         data_name = args.data_name or config.config["data"]["name"]
         export_results(multi_posterior, ps, export_path, data_name, hier)

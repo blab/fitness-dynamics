@@ -13,5 +13,6 @@ datasets:
   clade_min_seq: 100
   pivot: "12"
   generation_time: 2.0
+  temporal_aggregation: '2W'
 
 mlr_config: "defaults/mlr-config.yaml"

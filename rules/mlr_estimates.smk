@@ -41,7 +41,8 @@ rule mlr_model:
         model_config = config.get("mlr_config"),
         export_path = lambda w: f"mlr-estimates/{w.dataset}",
         pivot = lambda wildcards: _get_models_option(wildcards, 'pivot'),
-        generation_time = lambda wildcards: _get_models_option(wildcards, 'generation_time')
+        generation_time = lambda wildcards: _get_models_option(wildcards, 'generation_time'),
+        temporal_aggregation = lambda wildcards: _get_models_option(wildcards, 'temporal_aggregation')
     resources:
         mem_mb=4000
     shell:
@@ -52,5 +53,6 @@ rule mlr_model:
             --export-path {params.export_path} \
             {params.pivot} \
             {params.generation_time} \
+	    {params.temporal_aggregation} \
             --data-name mlr 2>&1 | tee {log}
         """
