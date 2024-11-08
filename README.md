@@ -46,7 +46,7 @@ nextstrain build . all_sequence_counts
 ```
 to produce the sequence counts files
 ```
-sequence-counts/sarscov2/prepared_seq_counts.tsv
+sequence-counts/sarscov2_clades_2020/prepared_seq_counts.tsv
 ```
 Currently, clade counts are provisioned for just the USA.
 
@@ -59,5 +59,9 @@ nextstrain build . all_mlr_estimates
 ```
 to produce the MLR output JSON files
 ```
-mlr-estimates/sarscov2/mlr_results.json
+mlr-estimates/sarscov2_clades_2020/mlr_results.json
 ```
+
+### Scaffolded fitnesses
+
+Fitnesses within each timepoint are measured relative to an arbitrary pivot variant. The Mathematica notebook `fitness-flux-analysis/fitness-flux.nb` takes `mlr_results.json` across timepoints and combines into a single `scaffolded-fitness/sarscov2_clades_scaffolded_fitness.tsv`. This notebook needs to be run separately for virus `sarscov2` classification `clades`, virus `sarscov2` classification `lineages` and virus `h3n2` classification `clades`. 
