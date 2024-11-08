@@ -1,9 +1,9 @@
 datasets:
-  - 7PET_clades
+  - 7PET
 
 # V.c. 
 
-7PET_clades:
+7PET:
   local_metadata: "data/7PET_metadata.tsv.zst"
   seq_count_options: >-
     --clade-column clade

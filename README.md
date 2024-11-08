@@ -4,7 +4,7 @@ Forked from https://github.com/blab/fitness-dynamics
 ## Provision metadata locally
 
 ```
-zstd -c data/metadata_filtered.tsv > data/7PET_metadata.tsv.zst
+zstd -c data/7PET_metadata.tsv > data/7PET_metadata.tsv.zst
 ```
 
 ## Workflow
@@ -16,9 +16,10 @@ nextstrain build . all_mlr_estimates
 
 ### Sequence counts
 
-Data for the project consists of daily sequence counts of clades of SARS-CoV-2,
-influenza H3 and influenza H1. Sequence counts are provisioned to the
-`sequence-counts/` directory. From top-level directory run
+Data for the project consists of sequence counts of clades of V.c. 
+Sequence counts are provisioned to the `sequence-counts/` directory.
+
+ From top-level directory run
 ```
 nextstrain build . all_sequence_counts
 ```
