@@ -1,0 +1,477 @@
+strain	date	country	clade
+00-12_S86	2000-01-01	China	9
+00-1_S85	2000-12-31	China	9
+01-38_S91	2001-01-01	China	9
+05-15_S38	2005-01-01	China	9
+06-25_S109	2006-04-19	China	9
+07-15_S120	2007-01-01	China	9
+08-2_S132	2008-01-01	China	9
+09-42_S155	2009-03-23	China	3
+09-5_S54	2009-12-31	China	9
+10-13_S12	2010-01-01	China	5
+10-17_S15	2010-01-01	China	9
+1009	2010-01-01	China	9
+11-5_S25	2011-01-01	China	9
+1283-CDC	1984-01-01	China	11
+129-CDC	1994-01-01	China	9
+132-CDC	1978-12-31	China	11
+143-CDC	2001-01-01	China	9
+147-CDC	2002-01-01	China	9
+1551-CDC	1979-12-31	China	11
+1575-CDC	1990-01-01	China	9
+1583-CDC	1991-09-20	China	9
+1593-CDC	1992-10-20	China	9
+1605-CDC	1993-12-31	China	9
+1627-CDC	1997-01-01	China	9
+1909-CDC	1998-01-01	China	9
+1944-CDC	2000-01-01	China	9
+2	2009-01-01	Democratic Republic of the Congo	4
+200106-CDC	2001-01-01	China	9
+21	2001-01-01	India	9
+2255-CDC	2008-12-31	China	5
+2308-CDC	1978-12-31	China	12
+2530-CDC	1996-12-31	China	9
+2574-CDC	1980-01-01	China	11
+2578-CDC	1985-01-01	China	11
+2580-CDC	1989-12-31	China	11
+2605-CDC	1998-01-01	China	9
+2657-CDC	1995-01-01	China	9
+2710-CDC	1986-12-31	China	11
+2752-CDC	1981-01-01	China	11
+2757-CDC	1987-01-01	China	11
+2783-CDC	1964-12-31	China	12
+2848-CDC	1988-01-01	China	9
+2865-CDC	1961-12-31	China	12
+2873-CDC	1961-06-05	China	12
+2914-CDC	1966-05-14	China	12
+2921-CDC	1962-12-31	China	12
+2957-CDC	1964-12-31	China	12
+29791_3_171	2016-01-01	Bangladesh	5
+29791_3_220	2016-01-01	Bangladesh	5
+29791_3_24	2015-01-01	Bangladesh	5
+29791_3_260	2016-01-01	Bangladesh	5
+29791_3_293	2015-01-01	Bangladesh	5
+29791_3_34	2017-01-01	Bangladesh	5
+29791_3_345	2016-01-01	Bangladesh	5
+29791_3_358	2014-01-01	Bangladesh	5
+29791_3_378	2014-01-01	Bangladesh	5
+29791_3_53	2015-01-01	Bangladesh	5
+2981-CDC	1965-12-31	China	12
+29878_3_334	2018-01-01	Bangladesh	1
+29878_3_42	2018-01-21	Bangladesh	5
+3	2009-01-01	Democratic Republic of the Congo	6
+3014-CDC	1969-12-31	China	12
+3024-CDC	1973-12-31	China	10
+3075-CDC	1974-12-31	China	12
+31585_4_359	2017-01-01	Bangladesh	5
+3270-CDC	1977-01-01	China	11
+3289-CDC	1978-12-31	China	12
+3304-CDC	1979-12-31	China	10
+33308_1_124	2019-01-01	Bangladesh	1
+33308_1_132	2019-01-01	Bangladesh	1
+33308_1_179	2019-02-20	Bangladesh	1
+33308_1_86	2019-02-20	Bangladesh	1
+3497-CDC	1980-01-01	China	11
+3538-CDC	1981-12-31	China	10
+3564-CDC	1982-12-31	China	11
+3595-CDC	1983-08-26	China	11
+3626-CDC	1983-01-01	China	11
+3633-CDC	1984-12-31	China	11
+3735-CDC	1988-01-01	China	11
+4039-CDC	1993-01-01	China	9
+4210-CDC	1999-01-01	China	9
+4244	2003-12-31	India	5
+4265	2003-01-01	India	5
+4315	2004-02-08	India	5
+4374	2004-12-31	India	5
+4380	2004-12-31	India	5
+4395	2004-12-31	India	5
+4488	2006-12-31	India	5
+4538	2007-12-31	India	5
+4634	2005-01-01	India	5
+4636	2005-12-31	India	5
+4646	2007-12-31	India	5
+4661	2001-12-31	Bangladesh	5
+4662	2001-12-31	Bangladesh	5
+4663	2001-12-31	Bangladesh	5
+4670	1991-12-31	Bangladesh	9
+4672	2000-01-01	Bangladesh	9
+4675	2001-01-01	Bangladesh	5
+4679	1999-12-31	Bangladesh	5
+5157	2009-01-01	India	3
+5286	2009-01-01	India	5
+539	2005-10-27	China	9
+542	2005-12-31	China	9
+6016	2009-01-01	India	2
+604	2006-04-12	China	9
+606	2006-12-31	China	9
+622	2009-01-01	Democratic Republic of the Congo	4
+6236	2009-10-14	India	3
+63244-CDC	1963-12-31	China	12
+642345-CDC	1964-04-17	China	12
+707	2007-01-01	China	3
+726	2009-01-01	Democratic Republic of the Congo	4
+820	2008-12-31	China	9
+9-CDC	2001-01-01	China	9
+902	2009-12-31	China	9
+9088	2009-01-01	India	2
+910	2009-01-11	China	9
+93284-CDC	1993-12-31	China	9
+936-CDC	1998-01-01	China	9
+A10	1979-12-31	Bangladesh	11
+A130	1989-12-31	India	9
+A18	1977-01-01	India	12
+A22	1979-12-31	Bangladesh	11
+A346_1	1994-01-01	Bangladesh	7
+A346_2	1994-12-31	Bangladesh	7
+A390	1987-01-01	Bangladesh	11
+A397	1987-12-31	Bangladesh	11
+AGC-16	2017-03-22	Democratic Republic of the Congo	4
+AGC-17	2017-03-18	Democratic Republic of the Congo	4
+AGC-18	2017-04-03	Democratic Republic of the Congo	4
+AGC-20	2019-01-01	Democratic Republic of the Congo	4
+AGC-22	2017-04-03	Democratic Republic of the Congo	4
+AHV1003-CDC	2010-01-01	China	5
+AM_21	1995-01-01	India	9
+AM_233	1996-12-31	India	9
+AM_241	1996-06-08	India	9
+AM_255	1996-01-01	India	9
+AM_256	1996-12-31	India	9
+AM_260	1997-01-01	India	9
+AM_300	1997-01-01	India	9
+AM_306	1997-01-01	India	9
+AM_333	1997-01-01	India	9
+AM_55	1995-11-26	India	9
+AM_56	1995-03-09	India	9
+AM_9	1995-12-31	India	9
+B017	1997-01-01	Bangladesh	9
+B02	1997-01-01	Bangladesh	9
+B3C19	2013-01-01	Bangladesh	5
+B4C1	2013-01-12	Bangladesh	5
+B4C8	2013-12-26	Bangladesh	5
+B5C12	2013-01-01	Bangladesh	5
+B5C20	2013-12-31	Bangladesh	5
+BCH-01451	2011-10-11	India	3
+BCH-02282	2012-01-01	India	3
+BCH-04023	2014-01-01	India	1
+BGD004	2007-01-01	Bangladesh	5
+BGD006	2007-12-31	Bangladesh	5
+BGD008	2007-12-25	Bangladesh	3
+BGD010	2007-01-20	Bangladesh	5
+BGD013	2007-01-20	Bangladesh	5
+BGD016	2008-05-27	Bangladesh	3
+BGD021	2008-12-16	Bangladesh	3
+BGD024	2008-08-16	Bangladesh	3
+BGD025	2008-05-27	Bangladesh	3
+BGD029	2009-01-01	Bangladesh	5
+BGD030	2009-07-15	Bangladesh	5
+BGD041	2010-05-28	Bangladesh	3
+BGD045	2010-01-01	Bangladesh	3
+BGD051	2011-01-01	Bangladesh	3
+BGD061	2012-01-01	Bangladesh	3
+BGD090	2014-01-01	Bangladesh	5
+BGD101	2009-01-01	Bangladesh	5
+BGD105	2009-01-01	Bangladesh	5
+BGD114	2011-12-31	Bangladesh	3
+BGD117	2011-01-01	Bangladesh	5
+BGD145	2016-12-31	Bangladesh	5
+CIRS107	2002-01-01	Bangladesh	5
+CIRS141.1_d-2	2002-01-01	Bangladesh	9
+CIRS142.2_d-2	2002-01-01	Bangladesh	9
+CIRS198.2_d-4	2002-01-01	Bangladesh	5
+CIRS198.2_d-5	2002-07-25	Bangladesh	5
+CIRS206	2003-12-31	Bangladesh	5
+CIRS206.3_d-5	2003-01-01	Bangladesh	5
+CIRS209.3_d-2	2003-01-01	Bangladesh	5
+CIRS220	2003-01-01	Bangladesh	5
+CIRS258.2_d-6	2003-12-31	Bangladesh	5
+CIRS279.2_d-3	2004-01-01	Bangladesh	5
+CIRS297	2004-01-01	Bangladesh	5
+CIRS331.1_d-2	2004-01-01	Bangladesh	5
+CIRS335	2004-01-01	Bangladesh	5
+CIRS339	2005-01-01	Bangladesh	5
+CIRS347	2005-01-01	Bangladesh	5
+CIRS362	2005-01-01	Bangladesh	5
+CIRS362.2_d-4	2005-01-29	Bangladesh	5
+CNRVC010243	2001-01-01	Democratic Republic of the Congo	6
+CNRVC010254	2001-01-01	Democratic Republic of the Congo	6
+CNRVC020284	2002-01-01	Democratic Republic of the Congo	4
+CNRVC030032	2003-01-01	Democratic Republic of the Congo	6
+CNRVC030293	2003-01-01	Democratic Republic of the Congo	4
+CNRVC030469	2003-12-31	Democratic Republic of the Congo	6
+CNRVC030519	2002-07-16	Democratic Republic of the Congo	4
+CNRVC040299	2004-01-01	Democratic Republic of the Congo	6
+CNRVC050077	2005-01-01	Democratic Republic of the Congo	6
+CNRVC050284	2005-12-31	Democratic Republic of the Congo	6
+CNRVC060003	2006-06-18	Democratic Republic of the Congo	4
+CNRVC060153	2006-01-01	Democratic Republic of the Congo	6
+CNRVC070045	2007-07-25	Democratic Republic of the Congo	4
+CNRVC070530	2007-01-01	Democratic Republic of the Congo	4
+CNRVC080133	2008-12-31	Democratic Republic of the Congo	4
+CNRVC080370	2008-01-01	Democratic Republic of the Congo	4
+CNRVC110078	2011-01-01	Bangladesh	3
+CNRVC150056	2015-12-31	Democratic Republic of the Congo	6
+CNRVC150140	2015-12-31	India	3
+CNRVC910429	1991-01-01	Democratic Republic of the Congo	11
+CNRVC920169	1992-12-31	Democratic Republic of the Congo	11
+CNRVC930036	1962-12-31	India	12
+CNRVC930061	1961-01-01	China	12
+CNRVC930066	1964-12-31	India	12
+CNRVC930153	1993-01-01	Democratic Republic of the Congo	11
+CNRVC930163	1988-12-31	Democratic Republic of the Congo	11
+CNRVC930170	1984-01-01	Democratic Republic of the Congo	11
+CNRVC930185	1993-01-01	Democratic Republic of the Congo	11
+CNRVC940131	1994-01-01	Democratic Republic of the Congo	11
+CNRVC940143	1994-12-31	Democratic Republic of the Congo	11
+CNRVC940173	1994-08-18	Democratic Republic of the Congo	11
+CNRVC950693	1995-01-01	Democratic Republic of the Congo	11
+CNRVC950694	1995-12-31	Democratic Republic of the Congo	11
+CNRVC950695	1995-01-01	Democratic Republic of the Congo	11
+CNRVC950746	1995-01-01	Democratic Republic of the Congo	11
+CNRVC960118	1996-01-01	Democratic Republic of the Congo	9
+CNRVC960124	1996-10-11	Democratic Republic of the Congo	9
+CNRVC960127	1996-08-23	Democratic Republic of the Congo	9
+CNRVC960215	1996-01-01	India	5
+CNRVC960218	1996-12-31	Democratic Republic of the Congo	9
+CNRVC960308	1996-01-01	Democratic Republic of the Congo	11
+CNRVC970004	1997-12-23	Democratic Republic of the Congo	11
+CNRVC970027	1997-07-29	Democratic Republic of the Congo	9
+CNRVC970058	1997-12-31	Democratic Republic of the Congo	11
+CNRVC970113	1997-01-01	Democratic Republic of the Congo	9
+CNRVC970174	1997-12-31	Democratic Republic of the Congo	11
+CNRVC980047	1988-01-01	Democratic Republic of the Congo	11
+CNRVC980050	1984-11-29	Democratic Republic of the Congo	11
+CO_1095	1995-02-14	India	9
+CP1048	2010-01-01	Bangladesh	3
+CRC1106	1964-01-01	India	12
+CRC711	1962-01-01	India	12
+CRC_184	2000-01-01	India	9
+CRC_262	2000-12-31	India	9
+CRC_267	2000-03-11	India	9
+CTMA-1441	2015-12-31	Democratic Republic of the Congo	4
+CTMA_1402	2017-03-18	Democratic Republic of the Congo	4
+CTMA_1408	2015-12-31	Democratic Republic of the Congo	4
+CTMA_1409	2015-12-31	Democratic Republic of the Congo	4
+CTMA_1411	2015-01-01	Democratic Republic of the Congo	4
+CTMA_1428	2016-01-01	Democratic Republic of the Congo	4
+CTMA_1430	2016-01-01	Democratic Republic of the Congo	6
+CTMA_1432	2016-01-01	Democratic Republic of the Congo	6
+CTMA_1434	2016-01-01	Democratic Republic of the Congo	6
+CTMA_1446	2016-12-31	Democratic Republic of the Congo	6
+CTMA_1451	2014-12-31	Democratic Republic of the Congo	4
+CTMA_1464	2014-12-31	Democratic Republic of the Congo	6
+CTMA_1466	2014-06-19	Democratic Republic of the Congo	6
+CTMA_1468	2014-01-01	Democratic Republic of the Congo	4
+CTMA_1470	2014-07-10	Democratic Republic of the Congo	6
+Case_05	1993-01-01	Bangladesh	9
+Case_06	1993-07-26	Bangladesh	9
+Case_07	1993-01-01	Bangladesh	9
+D1	2021-05-05	Bangladesh	1
+D19.3	2017-06-10	Bangladesh	5
+D3	2022-12-31	Bangladesh	1
+D36	2017-01-16	Bangladesh	5
+D4	2022-12-31	Bangladesh	1
+D58	2017-07-17	Bangladesh	5
+D82	2018-01-01	Bangladesh	1
+DCC-001	2012-01-01	Bangladesh	3
+DMAVC-16	2022-01-01	Bangladesh	1
+DMAVC-20	2021-01-01	Bangladesh	1
+DMAVC-6	2022-04-13	Bangladesh	1
+DMAVC-9	2022-02-03	Bangladesh	1
+E306	2013-01-01	China	9
+EC0009	2010-07-02	Bangladesh	3
+EL021-65	1965-01-01	China	12
+EL1-62	1962-01-01	China	12
+EL11-63	1963-11-24	China	12
+EL1192	1978-01-01	China	12
+EL1344	1979-01-01	China	12
+EL1358	1979-01-01	China	12
+EL1409	1979-12-31	China	11
+EL1605	1980-01-01	China	12
+EL1824	1981-01-01	China	11
+EL1825	1981-01-01	China	11
+EL1848	1982-12-31	China	11
+EL2066	1983-12-31	China	11
+EL2092	1984-12-31	China	11
+EL2152	1985-12-31	China	11
+EL2201	1986-12-31	China	11
+EL2247	1987-01-01	China	11
+EL2266	1988-12-31	China	11
+EL2281	1989-01-01	China	11
+EL2300	1991-01-01	China	11
+EL2311	1992-01-01	China	11
+EL2312	1992-09-27	China	11
+EL2314	1992-01-01	China	11
+EL2322	1992-08-09	China	11
+EL2351	1994-12-31	China	9
+EL2356	1994-09-30	China	9
+EL2382	1994-05-26	China	9
+EL2390	1996-01-01	China	9
+EL2392	1996-09-14	China	9
+EL2393	1996-01-01	China	9
+EL2405	1996-01-01	China	9
+EL489	1975-01-01	China	12
+EL922	1977-01-01	China	12
+EN079	2006-01-01	Bangladesh	5
+EN149	2006-01-01	Bangladesh	5
+EN160	2006-12-31	Bangladesh	5
+EN166	2006-01-01	Bangladesh	5
+EN168	2006-11-21	Bangladesh	5
+FC1225	2001-12-31	India	9
+FC1384	2000-12-31	India	9
+FC2029	2001-12-31	India	9
+FC2273	1998-07-08	India	9
+FC3611_A	1997-01-01	India	9
+FC3611a	1999-12-31	India	9
+FC952	2000-01-01	India	9
+FJ147-CDC	2005-12-31	China	3
+G126	1962-01-01	China	12
+GD196110-CDC	1961-12-31	China	12
+GP145	1979-12-31	India	10
+GP152	1979-12-31	India	11
+GP160	1980-12-31	India	10
+GP60	1973-12-31	India	11
+HCIS-138A	2014-07-13	Bangladesh	5
+HCIS-160B	2014-01-01	Bangladesh	5
+H_14205	2002-01-01	India	9
+H_16382	2002-12-18	India	9
+IB4518	2006-12-31	India	5
+IB4583	2007-12-31	India	5
+IB4590	2007-12-31	India	5
+IB4601	2007-01-11	India	5
+ICDC-VC2272	2008-01-01	China	5
+IDH-00527	2008-01-01	India	5
+IDH-00745	2008-05-14	India	3
+IDH-00845	2008-01-01	India	5
+IDH-01241	2008-01-01	India	3
+IDH-03107	2010-01-01	India	3
+IDH-03159	2010-01-01	India	3
+IDH-03506	2011-01-01	India	3
+IDH-04415	2012-02-27	India	3
+IDH-04677	2012-01-01	India	3
+IDH-04858	2012-01-01	India	3
+IDH-04986	2013-01-01	India	1
+IDH-05467	2013-08-10	India	1
+IDH-05640	2013-12-23	India	1
+IDH-06175	2014-05-25	India	1
+IDH-06592	2014-01-01	India	1
+IDH-06845	2014-01-01	India	3
+IDH-07176	2014-01-01	India	3
+IDH-08222	2015-01-01	India	3
+IDH-08341	2015-12-31	India	3
+IDH-08923	2016-01-01	India	3
+IDH-09108	2016-01-01	India	3
+IDH-09620	2016-01-01	India	1
+IDH0046	2001-12-31	India	9
+IDH08148	2015-01-01	India	3
+JS4	2010-01-01	China	5
+L174	2012-06-01	Democratic Republic of the Congo	4
+L184	2012-01-01	Democratic Republic of the Congo	4
+L193	2012-01-01	Democratic Republic of the Congo	4
+L201	2012-12-31	Democratic Republic of the Congo	4
+L204	2012-11-27	Democratic Republic of the Congo	4
+L283	2008-01-01	Democratic Republic of the Congo	4
+L284	2008-01-01	Democratic Republic of the Congo	6
+L300	2011-12-31	Democratic Republic of the Congo	4
+L310	2011-04-18	Democratic Republic of the Congo	4
+L342	2001-12-31	Democratic Republic of the Congo	6
+L354	2011-01-01	Democratic Republic of the Congo	4
+L363	2013-12-31	Democratic Republic of the Congo	6
+L372	2013-12-31	Democratic Republic of the Congo	4
+L377	2013-04-21	Democratic Republic of the Congo	6
+L384	2013-01-18	Democratic Republic of the Congo	4
+L78	2009-06-14	Democratic Republic of the Congo	6
+M119	2019-01-01	Bangladesh	1
+MAB005	2005-01-01	Bangladesh	5
+MAB014	2008-12-24	Bangladesh	5
+MAB017	2009-01-01	Bangladesh	5
+MDO_203	1993-01-01	India	9
+MDO_205	1993-01-01	India	9
+MG116025	1991-01-01	Bangladesh	9
+MG116226	1991-12-31	Bangladesh	9
+MJ1236	1994-01-01	Bangladesh	7
+MJ1485	1994-12-31	Bangladesh	7
+MO10	1992-01-01	India	9
+MO_10	1992-12-31	India	9
+MO_1947	1994-01-01	India	9
+MO_292	1994-01-01	India	9
+N16961	1975-01-01	Bangladesh	11
+NALMLE25	2018-01-01	Bangladesh	1
+NALMLE31	2018-01-01	Bangladesh	1
+NALMLE45	2015-12-31	Bangladesh	5
+NPO_270	1993-01-01	India	9
+NPO_565	1994-12-31	India	9
+NPO_585	1994-12-31	India	9
+NPO_586	1994-12-31	India	9
+NT_3478	1999-12-31	India	9
+NT_3612	1999-01-01	India	9
+NT_3627	1999-01-01	India	9
+NT_4372	2002-01-01	India	9
+NT_4384	2002-12-18	India	9
+OS_409	2006-01-01	India	9
+PCS022	2010-01-01	Bangladesh	5
+PG_110	1998-01-01	India	9
+PG_177	1998-01-25	India	9
+PG_178	1998-06-24	India	9
+PRL5	1980-12-31	India	11
+Prevac4246	2003-01-01	India	5
+Prevac4282	2003-12-31	India	5
+Prevac4291	2003-12-31	India	5
+Prevac4332	2004-12-31	India	5
+Prevac4404	2005-01-01	India	5
+Prevac4421	2005-10-11	India	5
+Prevac4422	2005-01-01	India	5
+Prevac4500	2006-01-01	India	5
+Prevac4656	2006-01-01	India	5
+R-18308	1973-09-11	India	11
+SC1998_242-1-CDC	1998-12-31	China	9
+SC2000-CDC	2000-12-31	China	9
+SD_44	1992-01-01	India	9
+SG_16	1992-01-01	India	9
+SG_18	1992-12-31	India	9
+SG_30	1993-01-01	India	9
+SG_41_2	1993-01-01	India	9
+TC05	2011-01-01	Bangladesh	5
+TC07	2012-01-01	Bangladesh	5
+TC08	2012-01-01	Bangladesh	5
+TC13	2012-12-31	Bangladesh	5
+THSTI_23485	2010-12-31	India	3
+THSTI_23835	2010-12-31	India	3
+THSTI_26866	2011-04-23	India	3
+THSTI_26871	2011-12-31	India	3
+THSTI_33102	2012-12-31	India	1
+THSTI_36133	2013-01-01	India	1
+THSTI_45869	2015-01-24	India	1
+THSTI_52586	2016-12-31	India	3
+THSTI_52588	2016-01-01	India	1
+THSTI_55199	2017-12-31	India	1
+THSTI_56650	2017-12-31	India	1
+THSTI_56695	2017-12-31	India	1
+THSTI_56712	2017-01-21	India	1
+THSTI_D31153	1998-01-01	India	6
+THSTI_E12067	1999-06-17	India	5
+THSTI_G27875	2001-12-31	India	5
+THSTI_GP160bis	1980-12-31	India	10
+THSTI_H11801	2002-01-01	India	5
+THSTI_IDH00563	2008-01-01	India	5
+THSTI_IDH02834	2010-12-31	India	3
+THSTI_V108	1990-01-01	India	9
+THSTI_V12	1989-01-01	India	9
+THSTI_V149	1990-01-01	India	9
+THSTI_V156	1991-01-01	India	9
+THSTI_V157	1991-01-01	India	9
+THSTI_V8	1989-01-01	India	9
+V011506-CDC	2001-01-01	China	9
+V109	1990-12-31	India	9
+V212-1	1991-01-01	India	9
+V5	1989-12-31	India	9
+VC172	1993-12-31	Bangladesh	9
+VC179	1993-12-31	Bangladesh	9
+VC2248-1-CDC	2008-01-01	China	5
+VC2454-CDC	2005-01-27	China	5
+Vc_EDC_755	2015-12-31	Bangladesh	5
+W4-13	2013-12-31	India	3
+YN2011004	2011-01-01	China	5
+YN89004	1989-01-01	China	9
+YN97083	1997-01-01	China	9
+YN98296	1998-12-31	China	9
