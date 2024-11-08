@@ -1,33 +1,11 @@
-# Comparing fitness dynamics across SARS-CoV-2, influenza H3 and influenza H1
+# Comparing fitness dynamics across 7PET V.c. clades
+Forked from https://github.com/blab/fitness-dynamics
 
 ## Provision metadata locally
 
 ```
-mkdir data
-cd data
+zstd -c data/metadata_filtered.tsv > data/7PET_metadata.tsv.zst
 ```
-
-For SARS-CoV-2
-```
-aws s3 cp s3://nextstrain-ncov-private/metadata.tsv.zst sarscov2_metadata.tsv.zst
-zstd -c -d sarscov2_metadata.tsv.zst \
-   | tsv-select -H -f strain,date,country,clade_nextstrain,Nextclade_pango,QC_overall_status \
-   | zstd -c > sarscov2_subset_metadata.tsv.zst
-```
-and move to `fitness-dynamics/data/`.
-
-For H3N2, clone https://github.com/blab/flu-geo-fitness and then run
-```
-nextstrain build . data/h3n2/metadata_with_nextclade.tsv
-cd data/h3n2/
-sed -i -e 's/\tseqName\t/\tstrain\t/' metadata_with_nextclade.tsv
-sed -i -e 's/\tUsa\t/\tUSA\t/g' metadata_with_nextclade.tsv
-sed -i -e '1s/$/\tinclusion/; 2,$s/$/\tglobal/' metadata_with_nextclade.tsv
-tsv-select -H -f strain,date,region,country,inclusion,subclade,qc.overallStatus metadata_with_nextclade.tsv > metadata_selected.tsv
-tsv-filter -H --str-ne subclade:unassigned --str-gt date:2000-01-01 metadata_selected.tsv > metadata_filtered.tsv
-zstd -c metadata_filtered.tsv > h3n2_subset_metadata.tsv.zst
-```
-and move to `fitness-dynamics/data/`.
 
 ## Workflow
 
@@ -46,9 +24,9 @@ nextstrain build . all_sequence_counts
 ```
 to produce the sequence counts files
 ```
-sequence-counts/sarscov2/prepared_seq_counts.tsv
+sequence-counts/7PET/prepared_seq_counts.tsv
 ```
-Currently, clade counts are provisioned for just the USA.
+Currently, clade counts are provisioned for just the India, Bangladesh, China, and DRC.
 
 ### MLR estimates
 
@@ -59,5 +37,5 @@ nextstrain build . all_mlr_estimates
 ```
 to produce the MLR output JSON files
 ```
-mlr-estimates/sarscov2/mlr_results.json
+mlr-estimates/7PET/mlr_results.json
 ```
